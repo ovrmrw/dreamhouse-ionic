@@ -74,4 +74,6 @@ UserInterfaceState.xcuserstate
 
 www/assets
 www/build
-www/*.{html,json,js}
+www/*.html
+www/*.json
+www/*.js
