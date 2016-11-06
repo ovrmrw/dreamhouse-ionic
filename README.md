@@ -1,6 +1,8 @@
 # dreamhouse-ionic
 
-Re-write of [DreamHouse app](https://github.com/dreamhouseapp/dreamhouse-mobile-ionic).
+Re-write of [dreamhouseapp/dreamhouse-mobile-ionic](https://github.com/dreamhouseapp/dreamhouse-mobile-ionic).
+
+[Demo on Firebase Hosting](https://dreamhouse-5b969.firebaseapp.com/)
 
 ## Setup
 ```
@@ -10,7 +12,7 @@ $ npm install
 
 ## Run on local browser
 ```
-$ ionic serve
+$ npm start
 ```
 
 ---
@@ -23,6 +25,13 @@ $ ionic state restore
 ## Run on usb-connected Android device
 ```
 $ ionic run Android
+```
+
+---
+
+## Deploy to Firebase Hosting
+```
+$ npm run Deploy
 ```
 
 ---

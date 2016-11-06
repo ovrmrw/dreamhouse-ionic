@@ -10,7 +10,9 @@
     "emulate:before": "build",
     "deploy:before": "build",
     "build:before": "build",
-    "run:before": "build"
+    "run:before": "build",
+    "start": "ionic serve",
+    "deploy": "npm run build && firebase deploy && firebase open hosting:site"
   },
   "dependencies": {
     "@angular/common": "2.1.1",

@@ -64,7 +64,8 @@ export const favoritesReducer: StateReducer<Property[]> =
   (initState: Property[], dispatcher$: Dispatcher<Action>) =>
     dispatcher$.scan<Property[]>((state, action) => {
       if (action instanceof AddFavoriteAction) {
-        return [...state, action.property];
+        const uniqued: Property[] = lodash.uniqBy([...state, action.property], 'id');
+        return uniqued;
       } else if (action instanceof RemoveFavoriteAction) {
         const rejected: Property[] = lodash.reject(state, { id: action.property.id });
         return [...rejected];
