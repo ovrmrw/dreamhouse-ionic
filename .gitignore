@@ -70,3 +70,8 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+
+www/assets
+www/build
+www/*.{html,json,js}
