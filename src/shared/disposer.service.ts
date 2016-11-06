@@ -10,12 +10,12 @@ export class DisposerService {
 
   set sub(sub: Subscription) {
     this._subscriptions.push(sub);
-    console.log('add subscription', this._subscriptions);
+    // console.log('add subscription', this._subscriptions);
   }
 
 
   disposeSubscriptions(): void {
-    console.log('disposeSubscriptions');
+    // console.log('disposeSubscriptions');
     this._subscriptions = this._subscriptions
       .map(sub => {
         sub.unsubscribe();

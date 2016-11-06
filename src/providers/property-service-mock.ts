@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
 import lodash from 'lodash';
 import assert from 'assert';
 
