@@ -1,0 +1,22 @@
+machine:
+  node:
+    version: 6.9.1
+
+dependencies:
+  pre:
+    - echo y | android update sdk --no-ui --all --filter "android-23,build-tools-23.0.3"
+  post:
+    - npm install -g cordova ionic
+    - ionic hooks add
+    - ionic state restore
+
+test:
+  override:
+    - echo "do nothing"
+
+deployment:
+  development:
+    branch: deploy
+    commands:
+      - ionic build android
+      - curl -F "file=@platforms/android/build/outputs/apk/android-debug.apk" -F "token=$DEPLOYGATE_TOKEN" -F "message=sample" https://deploygate.com/api/users/$DEPLOYGATE_USER/apps
