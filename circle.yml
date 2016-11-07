@@ -15,7 +15,7 @@ test:
     - echo "do nothing"
 
 deployment:
-  development:
+  android:
     branch: deploy-android
     commands:
       - ionic build android
