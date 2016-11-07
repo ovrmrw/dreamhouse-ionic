@@ -1,13 +1,13 @@
 machine:
   node:
-    version: 5.12.0
+    # version: 5.12.0
 
 dependencies:
   pre:
-    - echo y | android update sdk --no-ui --all --filter "android-23,build-tools-23.0.3,extra-android-m2repositor"
+    # - echo y | android update sdk --no-ui --all --filter "android-23,build-tools-23.0.3,extra-android-m2repositor"
   post:
     - npm install -g cordova ionic
-    - ionic hooks add
+    # - ionic hooks add
     - ionic state restore
 
 test:
