@@ -5,23 +5,43 @@ import { Subscription } from 'rxjs/Rx';
 @Injectable()
 export class DisposerService {
 
-  private _subscriptions: Subscription[] = [];
+  private _subscriptionObjects: TokenSubscription[] = [];
 
 
-  set sub(sub: Subscription) {
-    this._subscriptions.push(sub);
-    // console.log('add subscription', this._subscriptions);
+  register(...subs: Subscription[]): void {
+    const token = this;
+    subs.forEach(sub => {
+      this._subscriptionObjects.push({ token, sub });
+      console.log('register subscription', token.constructor.name, this._subscriptionObjects);
+    });
   }
 
 
-  disposeSubscriptions(): void {
-    // console.log('disposeSubscriptions');
-    this._subscriptions = this._subscriptions
-      .map(sub => {
-        sub.unsubscribe();
-        return sub;
+  registerWithToken(token: Object, ...subs: Subscription[]): void {
+    subs.forEach(sub => {
+      this._subscriptionObjects.push({ token, sub });
+      console.log('register subscription', token.constructor.name, this._subscriptionObjects);
+    });
+  }
+
+
+  disposeSubscriptions(token: Object = this): this {
+    this._subscriptionObjects = this._subscriptionObjects
+      .map(obj => {
+        if (token.constructor === obj.token.constructor) {
+          obj.sub.unsubscribe();
+        }
+        return obj;
       })
-      .filter(sub => !sub.closed);
+      .filter(obj => !obj.sub.closed);
+    console.log('disposeSubscriptions', token.constructor.name, this._subscriptionObjects);
+    return this;
   }
 
+}
+
+
+interface TokenSubscription {
+  token: Object;
+  sub: Subscription;
 }

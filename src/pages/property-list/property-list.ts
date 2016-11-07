@@ -34,8 +34,9 @@ export class PropertyListPage implements OnInit {
 
 
   ionViewWillEnter() {
-    this.disposer.disposeSubscriptions();
-    this.disposer.sub = this.store.getState().subscribe(state => this.properties = state.properties);
+    this.disposer.disposeSubscriptions().register(
+      this.store.getState().subscribe(state => this.properties = state.properties),
+    );
 
     if (this.searchKey) {
       this.propertyService.requestPropertiesByName(this.searchKey);

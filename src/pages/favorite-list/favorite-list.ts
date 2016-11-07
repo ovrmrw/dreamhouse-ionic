@@ -29,8 +29,9 @@ export class FavoriteListPage implements OnInit {
 
 
   ionViewWillEnter() {
-    this.disposer.disposeSubscriptions();
-    this.disposer.sub = this.store.getState().subscribe(state => this.properties = state.favorites);
+    this.disposer.disposeSubscriptions().register(
+      this.store.getState().subscribe(state => this.properties = state.favorites),
+    );
   }
 
 

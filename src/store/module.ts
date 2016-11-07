@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 
-import { Dispatcher, createDispather } from './common';
+import { Dispatcher, createDispatcher } from './common';
 import { Store } from './store';
 
 
 @NgModule({
   providers: [
-    { provide: Dispatcher, useFactory: createDispather },
+    { provide: Dispatcher, useFactory: createDispatcher },
     Store,
   ],
 })

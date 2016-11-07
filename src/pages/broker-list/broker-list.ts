@@ -28,8 +28,9 @@ export class BrokerListPage implements OnInit {
 
 
   ionViewWillEnter() {
-    this.disposer.disposeSubscriptions();
-    this.disposer.sub = this.store.getState().subscribe(state => this.brokers = state.brokers);
+    this.disposer.disposeSubscriptions().register(
+      this.store.getState().subscribe(state => this.brokers = state.brokers),
+    );
 
     this.brokerService.requestAllBrokers();
   }

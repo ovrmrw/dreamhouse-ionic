@@ -28,8 +28,9 @@ export class BrokerDetailPage implements OnInit {
 
 
   ionViewWillEnter() {
-    this.disposer.disposeSubscriptions();
-    this.disposer.sub = this.store.getState().subscribe(state => this.broker = state.selectedBroker);
+    this.disposer.disposeSubscriptions().register(
+      this.store.getState().subscribe(state => this.broker = state.selectedBroker),
+    );
 
     const id: number = this.navParams.data.id;
     this.brokerService.requestBrokerById(id);

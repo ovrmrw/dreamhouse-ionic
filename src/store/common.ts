@@ -10,7 +10,7 @@ export class Dispatcher<T> extends Subject<T> {
 }
 
 
-export function createDispather() {
+export function createDispatcher() {
   return new Dispatcher<Action>();
 }
 
