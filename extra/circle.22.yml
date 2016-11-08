@@ -1,14 +1,14 @@
-# android sdk 24でCircleCIのビルドを通す設定。
+# android sdk 22でCircleCIのビルドを通す設定。
 
 machine:
   node:
-    # version: 4.5.0
+    version: 4.5.0
 
 dependencies:
   pre:
-    - echo y | android update sdk --no-ui --all --filter "android-24,build-tools-24.0.3"
+    - echo y | android update sdk --no-ui --all --filter "android-22,build-tools-22.0.1"
   post:
-    - npm install -g cordova ionic
+    - npm install -g cordova@5.4.0 ionic@2.1.4
     # - ionic hooks add
     - ionic state restore
 
