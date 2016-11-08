@@ -4,7 +4,8 @@ machine:
 
 dependencies:
   pre:
-    - echo y | android update sdk --no-ui --all --filter "android-24,build-tools-24.0.3"
+    # - echo y | android update sdk --no-ui --all --filter "android-24,build-tools-24.0.3" # working well
+    - echo y | android update sdk --no-ui --all --filter "android-19,build-tools-19.1"
   post:
     - npm install -g cordova ionic
     # - ionic hooks add
