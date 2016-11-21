@@ -31,7 +31,7 @@ $ ionic run Android
 
 ## Deploy to Firebase Hosting
 ```
-$ npm run Deploy
+$ npm run deploy:fb
 ```
 
 ---
