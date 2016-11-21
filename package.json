@@ -12,7 +12,8 @@
     "build:before": "build",
     "run:before": "build",
     "start": "ionic serve",
-    "deploy": "npm run build && firebase deploy && firebase open hosting:site"
+    "deploy": "npm run build && firebase deploy && firebase open hosting:site",
+    "deploy:android": "node build/deploy-to-android.js"
   },
   "dependencies": {
     "@angular/common": "2.1.1",
